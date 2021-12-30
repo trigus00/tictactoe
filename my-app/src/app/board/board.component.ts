@@ -30,28 +30,28 @@ export class BoardComponent implements OnInit {
     this.winner = this.calculateWinner();
   }
   calculateWinner(){
+    // winning the games 
       const lines = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6]
+        // horizontal lines 
+        [0,1,2], 
+        [3,4,5],
+        [6,7,8],
+        // vertical lines 
+        [0,3,6],
+        [1,4,7],
+        [2,5,8],
+        // diagonal lines 
+        [0,4,8],
+        [2,4,6]
       ];
       for (let i = 0; i < lines.length; i++) {
         const [a, b, c] = lines[i];
-        if (
-          this.square[a] &&
-          this.square[a] === this.square[b] &&
-          this.square[a] === this.square[c]
-        ) {
+        
+        if (this.square[a] && this.square[a] === this.square[b] &&this.square[a] === this.square[c]){
           return this.square[a];
-        }
-      }
+        }  
       return null;
     }
-
+  }
   
 }
